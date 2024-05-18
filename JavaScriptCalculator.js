@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (calculated) {
             currentInput = number; 
             calculated = false;
+            clear();
         } else {
             if (currentInput.length < 15) {
                 currentInput = currentInput === '0' ? number : currentInput + number;
