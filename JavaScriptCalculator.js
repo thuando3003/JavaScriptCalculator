@@ -1,10 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
     const equationDisplay = document.getElementById('equation');
     const resultDisplay = document.getElementById('result');
+    const kickSound = document.getElementById('kicksound');
+
     let currentInput = '';
     let operator = null;
     let previousInput = '';
     let calculated = false;
+
+    const playKickSound = () => {
+        kickSound.currentTime = 0; 
+        kickSound.play();
+    };
 
     const updateDisplay = () => {
         equationDisplay.value = previousInput + (operator ? ' ' + operator + ' ' : '') + currentInput;
@@ -20,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const Number = (number) => {
+        playKickSound();
         if (calculated) {
             currentInput = number; 
             clear();
